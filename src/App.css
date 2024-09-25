@@ -1,15 +1,20 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
 .logo {
   height: 6em;
   padding: 1.5em;
   will-change: filter;
   transition: filter 300ms;
+  border-radius: 1rem;
+}
+
+@font-face {
+  font-family: "MyCustomFont";
+  src: url("./assets/fonts/Lastica.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: "MyCustomFont", sans-serif;
 }
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
@@ -33,35 +38,53 @@
   }
 }
 
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
-
-html body {
+html,
+body {
   padding-top: 40px;
   padding-bottom: 40px;
-  background: linear-gradient(135deg, #284579, #4bc3ad);
+  background: url("https://lh5.googleusercontent.com/p/AF1QipPn-LNmZ-SG61NMOAiR6cz842KgW6GRKy9mLTfT");
   background-repeat: no-repeat;
   background-size: cover;
-  display: flex;
-  justify-content: center;
+  background-position: center;
   height: 100vh;
   width: 100vw;
-  font-family: "Mulish";
-  font-size: 1.25rem;
+  font-family: "MyCustomFont", sans-serif;
+  font-size: 1.2rem;
+  position: relative; /* Ensure the pseudo-element is positioned relative to this container */
+  overflow: hidden; /* Prevent scrollbars from appearing due to the overlay */
+  justify-content: center;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(
+    0,
+    0,
+    0,
+    0.5
+  ); /* Adjust the opacity for the desired level of darkness */
+  z-index: 0; /* Keep it behind the content */
+  pointer-events: none; /* Allow clicks to pass through to the content */
+}
+
+body > * {
+  position: relative;
+  z-index: 1; /* Make sure content stays above the overlay */
 }
 
 .banner {
   display: flex;
+  flex-direction: column;
   justify-content: center;
 }
 
 .banner-image {
-  width: 128px;
+  width: 100%;
   height: 128px;
   object-fit: cover;
   border-radius: 128px;
@@ -69,9 +92,9 @@ html body {
 }
 
 .thumbnail {
-  width: 48px;
-  height: 48px;
-  border-radius: 48px;
+  width: 148px;
+  height: 148px;
+  border-radius: 50px;
   object-fit: cover;
 }
 
@@ -93,7 +116,7 @@ html body {
 }
 
 .link {
-  background: rgba(248, 231, 28, 0.55);
+  background: rgba(2, 2, 28, 0.55);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
@@ -102,7 +125,7 @@ html body {
 
   display: flex;
   align-items: center;
-  padding: 5px;
+  padding: 1rem;
   border-radius: 2rem;
   box-shadow: 3px 14px 74px 31px rgba(0, 0, 0, 0.1);
 }
