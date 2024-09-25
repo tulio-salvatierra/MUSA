@@ -13,7 +13,13 @@ function App() {
               className="logo"
               style={{ borderRadius: "2rem" }}
             ></img>
-            <p style={{ textAlign: "center" }}>
+            <p
+              style={{
+                textAlign: "center",
+                color: "#fff",
+                fontWeight: "bolder",
+              }}
+            >
               ✨ DISCOVER ✨ CREATE ✨ TRANSFORM ✨
             </p>
             <p style={{ textAlign: "center" }}>📞 312 919 7823</p>
